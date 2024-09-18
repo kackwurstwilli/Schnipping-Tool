@@ -79,7 +79,7 @@ class Capture_Polygon(QWidget):
 
         # Zuschneiden des Bildes auf das Begrenzungsrechteck des Polygons
         bounding_rect = self.polygon.boundingRect()
-        cropped_img = self.imgmap.copy(bounding_rect)
+        cropped_img = self.imgmap.copy(bounding_rect.intersected(self.imgmap.rect()))
 
         # Setze das zugeschnittene Bild in die Zwischenablage mit weißem Hintergrund
         white_background = QPixmap(cropped_img.size())
@@ -92,4 +92,5 @@ class Capture_Polygon(QWidget):
         clipboard.setPixmap(white_background)
 
         # Speichere das zugeschnittene Bild
+        self.imgmap = cropped_img
         self.main.label.setPixmap(cropped_img)
