@@ -1,5 +1,5 @@
 # "Schnipping Tool"
-a simple snipping tool with Polygon Selection
+a simple snipping tool with polygon selection
 
 # Usage
 
